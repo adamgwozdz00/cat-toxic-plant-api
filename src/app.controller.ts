@@ -1,5 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get, StreamableFile } from "@nestjs/common";
+import { AppService } from "./app.service";
+import { createReadStream } from "fs";
 
 @Controller()
 export class AppController {
@@ -8,5 +9,11 @@ export class AppController {
   @Get()
   getHello(): string {
     return this.appService.getHello();
+  }
+
+  @Get("/swaggerImg")
+  async getSwaggerImage() {
+    const file = createReadStream("logo.png");
+    return new StreamableFile(file);
   }
 }
