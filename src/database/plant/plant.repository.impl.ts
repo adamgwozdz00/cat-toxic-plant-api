@@ -26,7 +26,8 @@ export class PlantRepositoryImpl implements PlantRepository {
     return plant.id;
   }
   async delete(id: number): Promise<void> {
-    this.plants = this.plants.filter((plant) => plant.id !== id);
+    console.log(id, typeof id);
+    this.plants = this.plants.filter((plant) => plant.id != id);
   }
 }
 
