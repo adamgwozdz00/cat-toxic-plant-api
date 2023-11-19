@@ -1,8 +1,12 @@
-import { PlantRepository } from './plan.repository';
+import { Inject, Injectable } from '@nestjs/common';
+import { PlantRepository } from './plan.repository.interface';
 import { Plant, PlantDTO } from './plant';
 
+@Injectable()
 export class PlantService {
-  constructor(private plantRepository: PlantRepository) {}
+  constructor(
+    @Inject('PlantRepository') private plantRepository: PlantRepository,
+  ) {}
 
   async getById(id) {
     return this.plantRepository.findById(id);

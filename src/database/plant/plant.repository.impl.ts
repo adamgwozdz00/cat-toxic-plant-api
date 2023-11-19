@@ -1,4 +1,4 @@
-import { PlantRepository } from 'src/logic/plant/plan.repository';
+import { PlantRepository } from 'src/logic/plant/plan.repository.interface';
 import { Plant } from 'src/logic/plant/plant';
 
 export class PlantRepositoryImpl implements PlantRepository {
