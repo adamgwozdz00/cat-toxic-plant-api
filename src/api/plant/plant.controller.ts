@@ -26,8 +26,8 @@ export class PlantController {
   }
 
   @Get('toxicity/:isToxic')
-  getAllByToxicity(@Param('isToxic') isToxic: string): Promise<PlantDTO[]> {
-    return this.plantService.getAllByToxicity(isToxic);
+  getAllByToxicity(@Param('isToxic') isToxic: boolean): Promise<PlantDTO[]> {
+    return this.plantService.getAllByToxicity(String(isToxic) === 'true');
   }
 
   @Post()
