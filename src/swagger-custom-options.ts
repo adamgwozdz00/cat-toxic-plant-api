@@ -17,7 +17,21 @@ export const swaggerCustomOptions: SwaggerCustomOptions = {
         }
 
         .information-container.wrapper {
-            margin-top: -120px
+            margin-top: -120px;
+            position: relative;
+        }
+
+        .information-container.wrapper:after {
+            content: url('swaggerImg');
+            width: 10px;
+            height: 10px;
+            scale: 0.035;
+            visibility: visible;
+            display: block;
+            margin-top: -40px;
+            position: absolute;
+            right: 100px;
+            top: 0;
         }
 
         .swagger-ui .info {
@@ -28,17 +42,5 @@ export const swaggerCustomOptions: SwaggerCustomOptions = {
             color: white;
               font-family: 'Brush Script MT', cursive;
               font-size: 50px;
-        }
-
-        .topbar-wrapper .link:after {
-            content: url('swaggerImg');
-            width: 10px;
-            height: 10px;
-            scale: 0.035;
-            visibility: visible;
-            display: block;
-            margin-top: -40px;
-            position: absolute;
-            right: 100px
         }`,
 };
