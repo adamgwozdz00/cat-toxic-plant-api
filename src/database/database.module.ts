@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { PlantRepositoryImpl } from './plant/plant.repository.impl';
+import { plantRepositoryProvider } from './plant/plant.repository.impl';
 
 @Module({
-  providers: [{ provide: 'PlantRepository', useValue: PlantRepositoryImpl }],
-  exports: [{ provide: 'PlantRepository', useValue: PlantRepositoryImpl }],
+  providers: [plantRepositoryProvider],
+  exports: [plantRepositoryProvider],
 })
 export class DatabaseModule {}

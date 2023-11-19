@@ -1,20 +1,22 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { PlantRepository } from './plan.repository.interface';
+
 import { Plant, PlantDTO } from './plant';
+import { PlantRepositoryImpl } from 'src/database/plant/plant.repository.impl';
 
 @Injectable()
 export class PlantService {
   constructor(
-    @Inject('PlantRepository') private plantRepository: PlantRepository,
+    @Inject('InMemoryPlantRepository')
+    private plantRepository: PlantRepositoryImpl,
   ) {}
 
-  async getById(id) {
+  async getById(id: number) {
     return this.plantRepository.findById(id);
   }
-  async getByName(name) {
+  async getByName(name: string) {
     return this.plantRepository.findByName(name);
   }
-  async getAllByToxicity(toxicity) {
+  async getAllByToxicity(toxicity: boolean) {
     return this.plantRepository.findAllByToxicity(toxicity);
   }
   async create(plant: PlantDTO) {
@@ -25,7 +27,7 @@ export class PlantService {
     plant.update(plantDTO.name, plantDTO.toxicity);
     return this.plantRepository.save(plant);
   }
-  async delete(id) {
+  async delete(id: number) {
     return this.plantRepository.delete(id);
   }
 }

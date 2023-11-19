@@ -1,3 +1,5 @@
+import { ApiProperty } from '@nestjs/swagger';
+
 export class Plant {
   id: number;
   name: string;
@@ -14,7 +16,9 @@ export class Plant {
   }
 }
 
-export type PlantDTO = {
+export class PlantDTO {
+  @ApiProperty()
   name: string;
+  @ApiProperty({ type: Boolean })
   toxicity: boolean;
-};
+}
