@@ -1,13 +1,13 @@
 import { Inject, Injectable } from '@nestjs/common';
 
 import { Plant, PlantDTO } from './plant';
-import { PlantRepositoryImpl } from 'src/database/plant/plant.repository.impl';
+import { PlantRepository } from './plan.repository.interface';
 
 @Injectable()
 export class PlantService {
   constructor(
-    @Inject('InMemoryPlantRepository')
-    private plantRepository: PlantRepositoryImpl,
+    @Inject('PersistentPlantRepository')
+    private plantRepository: PlantRepository,
   ) {}
 
   async getById(id: number) {
