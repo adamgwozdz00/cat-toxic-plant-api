@@ -1,4 +1,4 @@
-# Prosta aplikacjia CRUD do obsługi Toksucznych roślin
+# Prosta aplikacjia CRUD do obsługi Toksycznych roślin
 
 Aplikacja została napisana w języku TypeScript z wykorzystaniem Frameworka NestJS
 
